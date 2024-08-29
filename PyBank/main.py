@@ -57,8 +57,8 @@ loss_month = unique_months[loss_index]
 print(f'Greatest Increase in Profits: {gain_month} (${max_gain})')
 print(f'Greatest Decrease in Profits: {loss_month} (${max_loss})')
 
-#Write to CSV file
-output_path = os.path.join('analysis','results.csv')
+#Write results to a text file
+output_path = os.path.join('analysis','results.txt')
 
 with open(output_path, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -68,10 +68,10 @@ with open(output_path, mode='w', newline='') as file:
     writer.writerow(["---------------------------"])
     
     # Write the analysis results
-    writer.writerow(['Total Months', f'{unique_count}'])
-    writer.writerow(['Total', f'${total_sum}'])
-    writer.writerow(['Average Change', f'${difference_average}'])
-    writer.writerow(['Greatest Increase in Profits', f'{gain_month} (${max_gain})'])
-    writer.writerow(['Greatest Decrease in Profits', f'{loss_month} (${max_loss})'])
+    writer.writerow([f'Total Months: {unique_count}'])
+    writer.writerow([f'Total: ${total_sum}'])
+    writer.writerow([f'Average Change: ${difference_average}'])
+    writer.writerow([f'Greatest Increase in Profits: {gain_month} (${max_gain})'])
+    writer.writerow([f'Greatest Decrease in Profits: {loss_month} (${max_loss})'])
 
 print(f"Results written to {output_path}")
